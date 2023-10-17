@@ -1,9 +1,11 @@
+const colorArray = require('./colorArray')
+
 const questions = [
         {
             type: 'list',
             name: 'shape',
             message: 'What shape do you want on your logo?',
-            choices: [circle, square, triangle],
+            choices: ['Circle', 'Square', 'Triangle'],
         },
         {
             type: 'input',
@@ -12,13 +14,13 @@ const questions = [
         },
         {
             type: 'input',
-            name: 'letters',
+            name: 'text',
             message: 'What 3 letters would you like on your logo?',
 
         },
         {
             type: 'input',
-            name: 'fontColor',
+            name: 'textColor',
             message: 'What color would you like your text to be?',
         }
     ])

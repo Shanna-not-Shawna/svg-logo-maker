@@ -1,7 +1,7 @@
-const inquirer = required('inquirer');
-const fs = required('fs');
+const inquirer = require('inquirer');
+const fs = require('fs');
 const questions = require('./questions.js');
-const shapes = require('./shapes.js')
+const shapes = require('./lib/shapes.js')
 
 function createLogo(response) {
     const svg = shapes(response);
