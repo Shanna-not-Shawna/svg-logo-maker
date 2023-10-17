@@ -1,38 +1,22 @@
 const inquirer = required('inquirer');
 const fs = required('fs');
+const questions = require('./questions.js');
+const shapes = require('./shapes.js')
 
-inquirer
-    .promt([
-        {
-            type: 'list',
-            name: 'shape',
-            message: 'What shape do you want on your logo?',
-            choices: [circle, square, triangle]
+function createLogo(response) {
+    const svg = shapes(response);
+    fs.writeFile(filename, svg, ()=> console.log('Generated logo.svg'));
+}
 
-        },
-        {
-            type: 'input',
-            name: 'letters',
-            message: 'What 3 letters would you like on your logo?',
-
-        },
-        {
-            type: 'input',
-            name: 'shapeColor',
-            message: 'What color would you like your shape to be?',
-        },
-        {
-            type: 'input',
-            name: 'fontColor',
-            message: 'What color would you like your text to be?',
-        }
-    ])
-
-    .then((answers) => {
-        const svgImage = generateSVG(answers);
-        const filename = `$answers.name.toLowerCase()split(' ').join('')}.json`;
-
-        fs.writeFile('filename' + 'logo.svg', svgImage, (err) =>
-            err ? console.log(err) : console.log('Successfully created .svg!'
-            );
+function init() {
+    inquirer
+    .prompt(questions)
+    .then(response => {
+        createLogo(response);
+    })
+    .catch(err => {
+        console.log(err)
     });
+}
+
+init();
