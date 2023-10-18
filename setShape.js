@@ -1,8 +1,8 @@
-const Circle = required('./lib/circle.js');
-const Square = required('./lib/square.js');
-const Triangle = required('./lib/triangle.js');
+const Circle = require('./lib/circle.js');
+const Square = require('./lib/square.js');
+const Triangle = require('./lib/triangle.js');
 
-function makeShape.js(response) {
+function setShape(response) {
 
     if (response.shape === 'Circle') {
         let userShape = new Circle (response.shapeColor, response.text, response.textColor)
@@ -20,4 +20,4 @@ function makeShape.js(response) {
     }
 };
 
-module.exports = makeShape;
+module.exports = setShape;

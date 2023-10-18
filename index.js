@@ -1,11 +1,13 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const questions = require('./questions.js');
-const shapes = require('./lib/shapes.js')
+const setShape = require('./setShape.js')
+const fileName = "./examples/logo.svg";
+// `$answers.name.toLowerCase()split(' ').join('')}.json`;
 
 function createLogo(response) {
-    const svg = shapes(response);
-    fs.writeFile(filename, svg, ()=> console.log('Generated logo.svg'));
+    const svg = setShape(response);
+    fs.writeFile(fileName, svg, ()=> console.log('Generated logo.svg'));
 }
 
 function init() {
